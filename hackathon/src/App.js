@@ -54,7 +54,10 @@ class App extends React.Component {
         <AudioReactRecorder
           state={recordState}
           onStop={this.onStop}
-          backgroundColor='rgb(232, 222, 213)'
+          canvasWidth='250px'
+          canvasHeight='20px'
+          backgroundColor='rgb(255,255,255)'
+          foregroundColor='rgb(217,132,67)'
         />
         <audio
           id='audio'
@@ -87,6 +90,10 @@ class App extends React.Component {
 
             The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.
 
+      </div>
+
+      <div class="footer">
+      Created by the Bit Manipulators. JPMC Hackathon 2022.
       </div>
       </div>
     )
