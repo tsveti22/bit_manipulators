@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "audio-react-recorder": "^1.0.4",
+    "bootstrap": "^5.2.2",
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
     "react-scripts": "5.0.1",
