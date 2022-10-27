@@ -44,7 +44,7 @@ class App extends React.Component {
     fd.append('audio_file', data['blob'], 'audio_file.wav');
     try {
       const response = await fetch(
-            'http://127.0.0.1:3000/api/transcribe', {
+            '/api/transcribe', {
             headers: { Accept: "application/json" },
             method: "POST", body: fd,}
         );
