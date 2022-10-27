@@ -13,15 +13,16 @@ def transcribe_audio():
     binary_file = open("audio.wav", "wb")
     binary_file.write(audio)
     binary_file.close()
+    app.logger.info('Saving file...')
     # Audio to text
     text = get_transcript('audio.wav')
-    print(text)
+    app.logger.info('Getting transcript')
     try:
         summary_list = get_summary(text)['top_sentences']
         sentence_size = len(summary_list)
-        top_n = len(summary_list)
-        if len(summary_list) > 3:
-            top_n = round(len(summary_list) / 3)
+        top_n = sentence_size
+        if sentence_size > 3:
+            top_n = round(sentence_size / 3)
         summary = ' '.join(summary_list[:top_n])
         summary = summary.replace('\n', '')
         return {'summary': summary}
