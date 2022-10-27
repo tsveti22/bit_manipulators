@@ -13,6 +13,7 @@ class App extends React.Component {
       recordState: null,
       audioData: null,
       resultText: null,
+      fullText: null,
     }
   }
 
@@ -56,7 +57,8 @@ class App extends React.Component {
       const result = await response.json();
       console.log(result)
       this.setState({
-        resultText: result['summary']
+        resultText: result['summary'],
+        fullText: result['full']
       })
 
       console.log('result is: ', JSON.stringify(result, null, 4));
@@ -107,10 +109,13 @@ class App extends React.Component {
       </div>
 
       <div class="text-box">
-      <div class="summary-title">Audio Summary:</div>
-        {this.state.resultText}
+          <div class="summary-title">Audio Summary:</div>
+            {this.state.resultText}
+           <br/>
+           <br/>
+          <div class="summary-title">Full Transcript:</div>
+            {this.state.fullText}
       </div>
-
       <div class="footer">
       Created by the Bit Manipulators. JPMC Hackathon 2022.
       </div>

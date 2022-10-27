@@ -27,10 +27,7 @@ def transcribe_audio():
         summary = summary.replace('\n', '')
         return {'summary': summary}
     except ZeroDivisionError:
-        return {'summary': text}
-
-
-root = os.path.join(os.path.dirname(os.path.abspath(__file__)), "ui")
+        return {'summary': text, 'full': text}
 
 
 @app.route("/", methods=['GET'])
