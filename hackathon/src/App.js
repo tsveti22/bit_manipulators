@@ -41,22 +41,22 @@ class App extends React.Component {
 
     console.log('onStop: audio data', data)
     let fd = new FormData();
-    fd.append('audio', this.state.audioData);
+    fd.append('audio_file', data['blob'], 'audio_file.wav');
     try {
-//      const response = await fetch(
-//            '/api/createAudio', {
-//            headers: { Accept: "application/json" },
-//            method: "POST", body: fd,}
-//        );
-//
-//      if (!response.ok) {
-//        throw new Error(`Error! status: ${response.status}`);
-//      }
-//
-//      const result = await response.json();
-      const result = "help me"
+      const response = await fetch(
+            'http://127.0.0.1:3000/api/transcribe', {
+            headers: { Accept: "application/json" },
+            method: "POST", body: fd,}
+        );
+
+      if (!response.ok) {
+        throw new Error(`Error! status: ${response.status}`);
+      }
+
+      const result = await response.json();
+      console.log(result)
       this.setState({
-        resultText: result
+        resultText: result['summary']
       })
 
       console.log('result is: ', JSON.stringify(result, null, 4));
